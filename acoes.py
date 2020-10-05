@@ -34,7 +34,7 @@ def Pass():#todos(passa a rodada)
 
 #ELFO
 def Apunhalada(atacante,defensor,inimigos_dict):#elfo
-    custopp=-1
+    custopp = 1
     if atacante.pp-custopp<0:
         print('Voce nao tem PP suficiente')
         JOGADA=True
@@ -53,7 +53,7 @@ def Flechada(atacante,defensor,inimigos_dict):#elfo
         return JOGADA
     else:
      atacante.pp-=custopp
-     inimigos_dict[defensor].vida-= (10*atacante.força/2 + 20*atacante.destreza - 5*inimigos_dict[defensor].defesa_fisica)
+     inimigos_dict[defensor].vida -= (10*atacante.força/2 + 20*atacante.destreza - 5*inimigos_dict[defensor].defesa_fisica)
      JOGADA=False
      return JOGADA
 

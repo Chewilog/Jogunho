@@ -8,7 +8,7 @@ from acoes import *
 JOGAR = True
 while JOGAR == True:
  inimigos=['I1', 'I2', 'I3', 'I4', 'I5']
- lista_de_inimigos=['Inimigo1', 'Inimigo2', 'Inimigo3', 'Inimigo4', 'Inimigo5']
+ lista_de_inimigos=['Inimigo-1', 'Inimigo-2', 'Inimigo-3', 'Inimigo-4', 'Inimigo-5']
  num_inimigos=random.randrange(1, 5)
  inimigos_dict={}
  lista_command=[]
@@ -18,8 +18,8 @@ while JOGAR == True:
 
  #Vamos criar o personagem
 
- print('JOGO BESTA')
- personagem = str(input('Qual personagem voce deseja criar ?(E-Elfo, D-DragonBorn, A-Anao, H-Humano)\n')).upper()
+ print('JOGO SUPIMPA')
+ personagem = str(input('Qual personagem voce deseja criar ?\n[E]-Elfo(a)\n[D]-DragonBorn\n[A]-Anao(ã)\n[H]-Humano(a)\n')).upper()
  nome_personagem = str(input('Qual o nome do seu personagem ?\n'))
  idade_personagem = int(input('Qual a idade do seu personagem?\n'))
  player,lista_acts,lista_command,dict_acts=CriaPersonagens(personagem, nome_personagem, idade_personagem)
@@ -29,17 +29,18 @@ while JOGAR == True:
  while Jogando == True:
     if player.vida == 0:
         Jogando=False
+    # print('\n')
     for inimigo in inimigos:#Mostrar a vida dos inimigos a cada rodada
         if inimigo in inimigos_dict.keys():
             print ('A vida do %s é %i'%(lista_de_inimigos[inimigos.index(inimigo)],inimigos_dict[inimigo].vida))
 
         else:
             continue
-    print('A sua vida é %i e o seu PP é %i'%(player.vida,player.pp))
+    print('\nA sua vida é %i e o seu PP é %i'%(player.vida,player.pp))
     JOGADA=True
-    print(lista_command)
+    # print(lista_command)
     while JOGADA==True:
-        act=input('O que voce vai fazer ? {0[0]}{1[0]} {0[1]}{1[1]} {0[2]}{1[2]} {0[3]}{1[3]}:\n'.format(lista_acts,lista_command)).upper()
+        act=input('O que voce vai fazer ? \n[{1[0]}]-{0[0]} \n[{1[1]}]-{0[1]} \n[{1[2]}]-{0[2]} \n[{1[3]}]-{0[3]}:\n'.format(lista_acts,lista_command)).upper()
         print('Quem voce quer atacar ?:')
         for inimig in inimigos_dict.keys():
             print(inimig)
